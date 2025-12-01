@@ -1,0 +1,197 @@
+## Learning Assignment: Build a Simple Event Space Platform
+
+### Objective
+Build a minimal event space listing platform using the Localy stack: Next.js 16, TypeScript, Supabase, and Tailwind CSS. This assignment covers core patterns without admin/host/user features.
+
+---
+
+### Tech Stack Overview
+
+**Core Technologies:**
+- **Next.js 16** (App Router) - React framework with server components
+- **TypeScript** - Type-safe JavaScript
+- **Supabase** - PostgreSQL database with real-time features
+- **Tailwind CSS** - Utility-first CSS framework
+- **Clean Architecture** - Layered architecture pattern (OPTIONAL)
+
+---
+
+### Minimum Viable Project Requirements
+
+Build a simple platform where users can:
+1. View a list of event spaces (homepage)
+2. View individual space details
+3. Filter spaces by city
+4. Search spaces by name
+
+**No authentication, no booking, no admin panel** - just read-only public pages.
+
+---
+
+### Things to Do
+
+
+Project Setup
+- [ ] Create a new Next.js project with TypeScript and Tailwind CSS
+- [ ] Install Supabase dependencie
+- [ ] Set up environment variables for Supabase connection
+- [ ] Organize project folders (you can choose your own structure)
+
+Database Setup
+- [ ] Create a Supabase project
+- [ ] Design and create a `spaces` table with necessary fields (id, title, description, city, capacity, price, images, etc.)
+- [ ] Set up Row Level Security (RLS) policies to allow public read access
+- [ ] Insert 5-10 sample spaces for testing
+
+
+Presentation Layer - Pages
+- [ ] Create a homepage that displays all spaces
+- [ ] Create a dynamic route for space detail pages (`/spaces/[id]`)
+- [ ] Ensure pages use use cases (not repositories directly)
+- [ ] Handle loading and error states appropriately
+- [ ] Use Next.js metadata API for SEO
+
+Presentation Layer - Components
+- [ ] Create a `SpaceCard` component to display space previews
+- [ ] Create a `SpaceDetail` component to display full space information
+- [ ] Determine which components need to be client components (`"use client"`) and why and when we use "use server"
+- [ ] Use Next.js Image component for optimized images
+- [ ] Make components responsive (mobile, tablet, desktop)
+
+Styling & Polish
+- [ ] Customize Tailwind configuration with brand colors
+- [ ] Create a header/navigation component
+- [ ] Add loading states (skeletons or spinners)
+- [ ] Add proper error handling and error messages
+- [ ] Ensure all pages are fully responsive
+- [ ] Test on different screen sizes
+
+Search & Filtering (Basic Features)
+- [ ] Add a search input on the homepage
+- [ ] Implement search functionality that filters spaces by name/title
+- [ ] Add a city filter dropdown or buttons
+- [ ] Update URL parameters when filters are applied (optional)
+
+---
+
+### Success Criteria
+
+Your project is complete when:
+- ✅ Homepage displays all spaces in a grid layout
+- ✅ Clicking a space navigates to its detail page
+- ✅ Space detail page shows all space information correctly
+- ✅ Search functionality filters spaces by name/title
+- ✅ City filter works and shows only spaces from selected city
+- ✅ All pages are responsive (work on mobile, tablet, and desktop)
+- ✅ No TypeScript errors or warnings no use of any
+- ✅ All data comes from Supabase (no hardcoded data)
+- ✅ Images load correctly and are optimized
+- ✅ Error states are handled gracefully (404 for missing spaces, etc.)
+- ✅ Loading states provide good user experience
+- ✅ Code is readable and well-organized
+
+---
+
+### Common Mistakes to Avoid
+
+1. ❌ **Importing repositories directly in pages**
+   - ✅ **Do**: Use use cases in pages
+   - ✅ **Do**: Instantiate use cases with repository dependencies
+
+2. ❌ **Using `any` type in TypeScript**
+   - ✅ **Do**: Define proper types for all variables, functions, and return values
+   - ✅ **Do**: Let TypeScript guide you to correct implementations
+
+3. ❌ **Mixing server and client code incorrectly**
+   - ✅ **Do**: Understand when to use `"use client"` directive
+   - ✅ **Do**: Keep server components as default (they're more efficient)
+   - ✅ **Do**: Only use client components when you need interactivity, hooks, or browser APIs
+
+4. ❌ **Skipping data mapping**
+   - ✅ **Do**: Convert Supabase database types to domain entities
+   - ✅ **Do**: Don't pass database types directly to components
+   - ✅ **Do**: Create mapping functions in repository implementation
+
+5. ❌ **Forgetting error handling**
+   - ✅ **Do**: Handle errors in repository methods
+   - ✅ **Do**: Use Next.js `notFound()` for missing resources
+   - ✅ **Do**: Show user-friendly error messages
+
+6. ❌ **Not understanding the dependency flow**
+   - ✅ **Do**: Remember: Pages → Use Cases → Repositories → Database
+   - ✅ **Do**: Never let repositories depend on pages or components
+   - ✅ **Do**: Keep domain layer (core) independent of other layers
+
+7. ❌ **Hardcoding data instead of using Supabase**
+   - ✅ **Do**: Always fetch data from Supabase
+   - ✅ **Do**: Remove any dummy/mock data before completion
+
+8. ❌ **Ignoring TypeScript errors**
+   - ✅ **Do**: Fix all TypeScript errors before considering the project complete
+   - ✅ **Do**: Use TypeScript as a guide, not an obstacle
+
+9. ❌ **Not testing on different devices**
+   - ✅ **Do**: Test on mobile, tablet, and desktop
+   - ✅ **Do**: Use browser dev tools to simulate different screen sizes
+
+10. ❌ **Creating components that are too large**
+    - ✅ **Do**: Break down complex components into smaller, reusable ones
+    - ✅ **Do**: Keep components focused on a single responsibility
+
+11. ❌ **Not using Next.js Image component**
+    - ✅ **Do**: Use Next.js `Image` component for all images
+    - ✅ **Do**: This provides automatic optimization and lazy loading
+
+12. ❌ **Forgetting to set up RLS policies in Supabase**
+    - ✅ **Do**: Enable Row Level Security on your tables
+    - ✅ **Do**: Create policies that allow public read access
+
+13. ❌ **Not handling loading states**
+    - ✅ **Do**: Show loading indicators while data is being fetched
+    - ✅ **Do**: Use loading skeletons for better UX
+
+14. ❌ **Passing functions or class instances to client components**
+    - ✅ **Do**: Convert classes to plain objects before passing to client components
+    - ✅ **Do**: Call methods (like `format()`) on the server before serialization
+
+15. ❌ **Not organizing code properly**
+    - ✅ **Do**: Keep related files together
+    - ✅ **Do**: Use clear, descriptive names for files and folders
+    - ✅ **Do**: Follow consistent naming conventions
+
+---
+
+### Learning Resources
+
+**Documentation:**
+- Next.js App Router documentation
+- Supabase JavaScript client reference
+- Tailwind CSS documentation
+- TypeScript handbook
+
+**AI Assistance:**
+- You can use AI tools to help with:
+  - Understanding concepts and patterns
+  - Debugging errors
+  - Generating code (but understand what it does)
+  - Explaining TypeScript errors
+- Don't just copy-paste code; make sure you understand it
+
+---
+
+### Timeline Estimate
+
+- **Beginners**: 1-2 weeks (working part-time)
+- **With AI help**: 3-5 days
+- **Focused learning**: 1 week
+
+---
+
+### Final Notes
+
+
+Focus on understanding why we structure code this way, not just making it work. The patterns you learn here are used in production applications.
+
+You can organize your folder structure however makes sense to you.
+
+Good luck.

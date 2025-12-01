@@ -6,11 +6,42 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary (púrpura) */
+  --color-primary: #7C3AED;
+  --color-primary-light: #ebebff;
+  --color-primary-hover: #8B5CF6;
+  --color-primary-foreground: #F8FAFC;
+
+  /* Secondary (gris claro) */
+  --color-secondary: #F1F5F9;
+  --color-secondary-hover: #E2E8F0;
+  --color-secondary-foreground: #0F172A;
+
+  /* Destructive (rojo) */
+  --color-destructive: #EF4444;
+  --color-destructive-hover: #F87171;
+  --color-destructive-foreground: #F8FAFC;
+
+  --color-text-primary: #171717;
+  --color-text-muted:#6B7280;
+  /* Input */
+  --color-input: #E2E8F0;
+  --color-input-hover: #CBD5E1;
+
+  /* Ring */
+  --color-ring: #0F172A;
+
+  /* Muted */
+  --color-muted: #F1F5F9;
+  --color-muted-hover: #E2E8F0;
+  --color-muted-foreground: #64748B;
+
+  /* Accent */
+  --color-accent: #F1F5F9;
+  --color-accent-hover: #E2E8F0;
+  --color-accent-foreground: #0F172A;
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
