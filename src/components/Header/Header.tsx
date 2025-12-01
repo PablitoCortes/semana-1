@@ -95,7 +95,6 @@ const Header = () => {
                 value={search}
               />
             </div>
-            {/* Filtro por ciudad */}
             <select
               className="hidden md:block px-3 py-2 border border-accent-foreground/50 rounded bg-white text-sm text-text-primary"
               value={city}
